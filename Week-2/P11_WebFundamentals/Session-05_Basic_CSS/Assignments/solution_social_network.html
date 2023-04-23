@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        div,
+        h1 {
+            margin-bottom: 5px;
+        }
+
+        label {
+            min-width: 100px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Join a social network</h1>
+    <form action="/action_page.php">
+        <div>
+            <label>First name:</label>
+            <input required name="fullName" id="fullName" />
+        </div>
+
+        <div>
+            <label required>Email address:</label>
+            <input name="email" id="email" />
+        </div>
+        <div>
+            <label>About you:</label>
+            <textarea name="about" id="about"></textarea>
+        </div>
+        <div>
+            <label>Photo:</label>
+            <input type="file" id="picture" />
+        </div>
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+
+</html>

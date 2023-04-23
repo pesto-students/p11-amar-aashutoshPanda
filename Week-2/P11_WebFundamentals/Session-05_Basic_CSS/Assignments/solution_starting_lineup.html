@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            padding: 5px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        label {
+            min-width: 50px;
+            display: inline-block;
+        }
+
+        fieldset {
+            max-width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Starting Lineup</h1>
+    <div>
+
+        <fieldset>
+            <legend>Status:</legend>
+
+            <input type="radio" name="action" id="draft" value="draft" />
+            <label for="draft">Draft</label>
+
+            <input type="radio" name="action" id="final" value="final" />
+            <label for="final">Final</label>
+
+        </fieldset>
+    </div>
+    <div>
+        <label>Date: </label>
+        <input type="date" name="date" id="date" />
+    </div>
+
+    <div>
+        <fieldset>
+            <legend>Players:</legend>
+
+            <input type="radio" name="action" id="AaravAgarwal" value="Aarav Agarwal" />
+            <label for="AaravAgarwal">Aarav Agarwal</label>
+            <br />
+
+            <input type="radio" name="action" id="AvaJohnson" value="Ava Johnson" />
+            <label for="AvaJohnson">Ava Johnson</label>
+            <br />
+
+            <input type="radio" name="action" id="JulioOrtiz" value="Julio Ortiz" />
+            <label for="JulioOrtiz">Julio Ortiz</label>
+            <br />
+
+            <input type="radio" name="action" id="LiamRubio" value="LiamRubio" />
+            <label for="LiamRubio">Liam Rubio</label>
+            <br />
+
+            <input type="radio" name="action" id="EmmaWitherspoon" value="Emma Witherspoon" />
+            <label for="EmmaWitherspoon">Emma Witherspoon</label>
+            <br />
+
+
+        </fieldset>
+
+    </div>
+    <input type="submit" value="Submit" />
+    </form>
+</body>
+
+</html>
