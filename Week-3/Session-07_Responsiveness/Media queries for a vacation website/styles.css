@@ -22,7 +22,7 @@ header {
 
 header > h1 {
    color: var(--theme-dark-color);
-   font-size: 2rem;
+   font-size: 2.5rem;
    margin: 10px 0;
    text-shadow: 2px 2px 3px gray;
 }
@@ -41,11 +41,12 @@ nav li {
 }
 
 nav li a {
-   padding: 10px 20px;
    color: var(--link-font-color);
 }
 
 nav li a:hover {
+   text-decoration: none;
+   color: var(--link-font-color);
    background-color: var(--theme-dark-color);
 }
 
@@ -58,8 +59,11 @@ main {
 }
 
 main > section {
-   margin-top: 10px;
-   padding-top: 10px;
+   margin-top: 30px;
+}
+
+footer {
+   margin-top: 30px;
 }
 
 .benefits-inner-container {
@@ -67,28 +71,8 @@ main > section {
    flex-direction: row;
 }
 
-.benefits-container {
-   display: flex;
-   flex-direction: column;
-}
-
 .benefit {
    color: var(--theme-dark-color);
    margin-left: 10px;
    margin-right: 20px;
 }
-
-.vacation-container {
-   display: flex;
-   flex-direction: column;
-}
-
-.vacation-container img {
-   width: 95%;
-}
-
-/* TODO: Add media query for 600px breakpoint */
-
-/* TODO: Add media query for 700px breakpoint */
-
-/* TODO: Add media query for 800px breakpoint */
