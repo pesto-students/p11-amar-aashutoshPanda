@@ -1,5 +1,7 @@
 function drawTriangle(triangleSize) {
-
-   // Your solution goes here
-   
+  for (let i = 0; i < triangleSize; i++) {
+    console.log("*".repeat(i + 1));
+  }
 }
+
+drawTriangle(4);
