@@ -9,23 +9,92 @@
 
 class CustomPromise {
   constructor(executor) {
-    // Your code here
+    this.state = "pending";
+    this.value = undefined;
+    this.error = undefined;
+    this.onFulfilledCallbacks = [];
+    this.onRejectedCallbacks = [];
+
+    const resolve = (value) => {
+      if (this.state === "pending") {
+        this.state = "fulfilled";
+        this.value = value;
+        this.onFulfilledCallbacks.forEach((callback) => callback(this.value));
+      }
+    };
+
+    const reject = (reason) => {
+      if (this.state === "pending") {
+        this.state = "rejected";
+        this.error = reason;
+        this.onRejectedCallbacks.forEach((callback) => callback(this.error));
+      }
+    };
+
+    try {
+      executor(resolve, reject);
+    } catch (error) {
+      reject(error);
+    }
   }
 
   then(onFulfilled, onRejected) {
-    // Your code here
+    return new CustomPromise((resolve, reject) => {
+      const onFulfilledCallback = (value) => {
+        try {
+          if (typeof onFulfilled === "function") {
+            const result = onFulfilled(value);
+            resolve(result);
+          } else {
+            resolve(value);
+          }
+        } catch (error) {
+          reject(error);
+        }
+      };
+
+      const onRejectedCallback = (reason) => {
+        try {
+          if (typeof onRejected === "function") {
+            const result = onRejected(reason);
+            resolve(result);
+          } else {
+            reject(reason);
+          }
+        } catch (error) {
+          reject(error);
+        }
+      };
+
+      if (this.state === "fulfilled") {
+        setTimeout(() => {
+          onFulfilledCallback(this.value);
+        });
+      } else if (this.state === "rejected") {
+        setTimeout(() => {
+          onRejectedCallback(this.error);
+        });
+      } else {
+        this.onFulfilledCallbacks.push(onFulfilledCallback);
+        this.onRejectedCallbacks.push(onRejectedCallback);
+      }
+    });
   }
 
   catch(onRejected) {
-    // Your code here
+    return this.then(undefined, onRejected);
   }
 
   static resolve(value) {
-    // Your code here
+    return new CustomPromise((resolve) => {
+      resolve(value);
+    });
   }
 
   static reject(reason) {
-    // Your code here
+    return new CustomPromise((resolve, reject) => {
+      reject(reason);
+    });
   }
 }
 
